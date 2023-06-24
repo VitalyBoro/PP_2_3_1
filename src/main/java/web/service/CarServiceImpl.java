@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class CarServiceImpl implements CarService {
 
     private static int count;
-    private List<Car> cars;
+    private final List<Car> cars;
 
     {
         cars = new ArrayList<>();
