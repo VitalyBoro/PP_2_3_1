@@ -1,5 +1,6 @@
 package web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,26 +11,24 @@ import web.service.CarServiceImpl;
 @Controller
 @RequestMapping("/cars")
 public class CarController {
-    private final CarServiceImpl carServiceImpl = new CarServiceImpl();
-    private final int carsListSize = carServiceImpl.getCarListFullSize().size();
+
+    @Autowired
+    private CarServiceImpl carServiceImpl;
+
+
 
 
     @GetMapping
     public String getCarListDifferentSize (@RequestParam(value = "count", required = false)
                                                   Integer number, ModelMap model) {
-        if (number == null || number > carsListSize - 1) {
-            model.addAttribute("car",
+        if (number == null || number > carServiceImpl.getCarListFullSize().size() - 1) {
+            model.addAttribute("carsList",
                     carServiceImpl.getCarListFullSize());
 
         } else {
-            model.addAttribute("car",
+            model.addAttribute("carsList",
                     carServiceImpl.getCarListDifferentSize(number));
         }
         return "car";
     }
-
-
-
-
-
 }
