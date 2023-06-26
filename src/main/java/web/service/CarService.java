@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface CarService {
 
-    public List<Car> getCarListFullSize();
-    public List<Car> getCarListDifferentSize(int count);
+    List<Car> getCarListFullSize();
+    List<Car> getCarListDifferentSize(int count);
 }
