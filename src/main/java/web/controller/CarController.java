@@ -15,9 +15,6 @@ public class CarController {
     @Autowired
     private CarServiceImpl carServiceImpl;
 
-
-
-
     @GetMapping
     public String getCarListDifferentSize (@RequestParam(value = "count", required = false)
                                                   Integer number, ModelMap model) {
