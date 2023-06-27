@@ -19,11 +19,11 @@ public class CarController {
     public String getCarListDifferentSize (@RequestParam(value = "count", required = false)
                                                   Integer number, ModelMap model) {
         if (number == null || number > carServiceImpl.getCarListFullSize().size() - 1) {
-            model.addAttribute("carsList",
+            model.addAttribute("cars",
                     carServiceImpl.getCarListFullSize());
 
         } else {
-            model.addAttribute("carsList",
+            model.addAttribute("cars",
                     carServiceImpl.getCarListDifferentSize(number));
         }
         return "car";
