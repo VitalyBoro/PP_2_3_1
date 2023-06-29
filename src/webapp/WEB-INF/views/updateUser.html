@@ -11,12 +11,16 @@
     <form th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="post">
         <br/> Name:
         <input type="text" th:field="*{name}"/>
+        <p th:errors="*{name}"/>
         <br/> Last name:
         <input type="text" th:field="*{lastName}"/>
+        <p th:errors="*{lastName}"/>
         <br/> Age:
         <input type="text" th:field="*{age}"/>
+        <p th:errors="*{age}"/>
         <br/> E-mail:
         <input type="text" th:field="*{email}"/>
+        <p th:errors="*{email}"/>
         <br/>
         <input type="submit" value="Update User">
     </form>
